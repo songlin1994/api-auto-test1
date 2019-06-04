@@ -14,6 +14,7 @@ for i in range(len(excel_list)):
     # 将ids_pop添加到 ids_list 里面
     ids_list.append(ids_pop)
 
+
 @allure.feature('登录模块')
 class Test_login:
 
@@ -35,9 +36,9 @@ class Test_login:
         print(type(login_resp_json))
 
         # 调用断言字符包含的方法: assertions.assert_in_text
-        assertions.assert_in_text(login_resp_json['message'],'失败')
+        assertions.assert_in_text(login_resp_json['message'],'成功')
 
-    @allure.story('登录')
+    @allure.story('登录参数化')
     @pytest.mark.parametrize('name,pwd,msg',excel_list,ids=ids_list)
     def test_login1(self,name,pwd,msg):
         # request.post_request 发送一个post请求 ( 传入参数 ) , 将响应结果返回赋值 给 login_resp
