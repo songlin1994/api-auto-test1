@@ -18,6 +18,7 @@ if __name__ == '__main__':
     log = Log.MyLog()
 
     shell = Shell.Shell()
+
     xml_report_path = './Report/xml/'
     html_report_path = './Report/html/'
 
