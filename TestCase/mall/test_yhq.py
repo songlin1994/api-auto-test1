@@ -20,6 +20,7 @@ for i in range(len(excel_list)):
 @allure.feature("优惠券模块")
 class Test_yhq:
 
+    @allure.severity("critical")  # 优先级，包含blocker, critical, normal, minor, trivial 几个不同的等级
     @allure.story("查询优惠券")
     def test_sel(self):
         sel_yhq_resp = request.get_request(url=url+'coupon/list',
@@ -33,6 +34,7 @@ class Test_yhq:
         global yhq_id
         yhq_id = item['id']
 
+    @allure.severity("critical")
     @allure.story('删除优惠券')
     def test_del(self):
         del_yhq_resp = request.post_request(url=url+'coupon/delete/' + str(yhq_id), headers=head)

@@ -18,7 +18,9 @@ for i in range(len(excel_list)):
 @allure.feature('登录模块')
 class Test_login:
 
+    @allure.severity("trivial")
     @allure.story('登录')
+    @pytest.mark.login
     def test_login(self):
 
         # request.post_request 发送一个post请求 ( 传入参数 ) , 将响应结果返回赋值 给 login_resp
@@ -38,8 +40,10 @@ class Test_login:
         # 调用断言字符包含的方法: assertions.assert_in_text
         assertions.assert_in_text(login_resp_json['message'],'成功')
 
+    @allure.severity("trivial")
     @allure.story('登录参数化')
     @pytest.mark.parametrize('name,pwd,msg',excel_list,ids=ids_list)
+    @pytest.mark.login
     def test_login1(self,name,pwd,msg):
         # request.post_request 发送一个post请求 ( 传入参数 ) , 将响应结果返回赋值 给 login_resp
         login_resp = request.post_request(url='http://192.168.60.132:8080/admin/login',

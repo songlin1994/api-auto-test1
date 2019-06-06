@@ -19,6 +19,7 @@ for i in range(len(excel_list)):
 @allure.feature("退货原因模块")
 class Test_thyy():
 
+    @pytest.mark.th
     @allure.story("查询退货原因")
     def test_sel(self):
         thyy_sel_resp = request.get_request(url=url + 'returnReason/list', params={'pageNum': 1, 'pageSize': 5},

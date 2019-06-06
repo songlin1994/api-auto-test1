@@ -25,25 +25,14 @@ def read_excel_dict(file):
 def read_excel_list(file):
     l = []
     wb = xlrd.open_workbook(filename=file)  # 打开文件
-    # print(wb.sheet_names())  # 获取所有表格名字
-
     sheet1 = wb.sheet_by_index(0)  # 通过索引获取表格
-    # print(sheet1)
-    # print(sheet1.name, sheet1.nrows, sheet1.ncols)
-
     for i in range(1, sheet1.nrows):
-        # l.append(sheet1.row_values(i))
-        d = []
-        for j in range(sheet1.ncols):
-            d = sheet1.row_values(i)
-        l.append(d)
-
-    # print(l)
+        l.append(sheet1.row_values(i))
     return l
 
 
 if __name__ == '__main__':
-    excel_list = read_excel_list("../document/test.xlsx")
+    excel_list = read_excel_list("../document/优惠券.xlsx")
     print(excel_list)
     idsList = []
     len1 = len(excel_list)
